@@ -1,0 +1,16 @@
+letter ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" ;
+digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+identifier ::= letter , { letter | digit | "_" } ;
+number ::= digit , { digit } ;
+program ::= { function_definition } ;
+function_definition ::= type , identifier , "(" , [ parameter_list ] , ")" , "{" , { statement } , "}" ;
+parameter_list ::= parameter , { "," , parameter } ;
+parameter ::= type , identifier ;
+statement ::= variable_declaration | assignment | return_statement | expression_statement ;
+variable_declaration ::= type , identifier , ";" ;
+assignment ::= identifier , "=" , expression , ";" ;
+return_statement ::= "return" , expression , ";" ;
+expression_statement ::= expression , ";" ;
+expression ::= term , { ( "+" | "-" | "*" | "/" ) , term } ;
+term ::= identifier | number | "(" , expression , ")" ;
+type ::= "int" | "float" | "char" ;
